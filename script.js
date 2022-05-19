@@ -36,26 +36,24 @@ function showPrompts() {
   return true;
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
 function writePassword() {
   var correctPrompts = showPrompts();
 
-  if (correctPropmpts) {
+  if (correctPrompts) {
 
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  document.getElementById("password").value = password
 
-  passwordText.value = password;
-  }
 }
 
 function generatePassword() {
   var password = "";
   for(var i = 0; i <characterlength; i++) {
-    var randomIndex = Math.floor(math.random() * chooseArr.length);
+    var randomIndex = Math.floor(Math.random() * chooseArr.length);
     password = password + chooseArr[randomIndex]
   }
   return password;
 }
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
